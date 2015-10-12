@@ -1,0 +1,21 @@
+<div class="section-heading">
+    <h1><i class="fa fa-pencil-square-o"></i> Blog</h1>
+    <p>Neuigkeiten rund um rocketbase.io, Ideen und interessante Technologien</p>
+</div>
+
+
+<div class="row">
+    <div class="col-md-7  col-md-offset-2">
+        <div ng-repeat="entry in entries" class="blogentry">
+            <h2><a href="#!{{entry.slug}}">{{entry.longTitle}}</a></h2>
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <i class="fa fa-clock-o"></i> {{ entry.date | date :  'dd.MM.yyyy' : 'CEST'}} - {{ entry.author }} - <i class="fa fa-comments-o"></i> <span class="disqus-comment-count" disqus-identifier="entry.slug"></span>
+                </div>
+            </div>
+            <p>
+                {{ entry.teaser }}
+            </p>
+        </div>
+    </div>
+</div>

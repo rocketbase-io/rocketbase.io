@@ -1,0 +1,41 @@
+<div>
+    <div><a href="#!/"><i class="fa fa-angle-double-left"></i> zur&uuml;ck</a></div>
+    <div class="section-heading">
+            <h1>{{ entry.longTitle }}</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <p>
+                <i class="fa fa-clock-o"></i> {{ entry.date | date :  'dd.MM.yyyy' : 'CEST'}}
+            </p>
+            <p>
+                <a ng-repeat="headline in headlines" ng-click="scrollTo(headline)">{{headline.label}}</a>
+            </p>
+        </div>
+        <div class="col-md-7">
+            <div table-of-contents ng-model="entry.content" ng-bind-html="entry.content">{{ entry.content }}</div>
+        </div>
+        <div class="col-md-2 col-md-offset-1">
+            <p>
+                <img src="http://res.cloudinary.com/rocketbase-io/image/upload/c_scale,h_200,w_200/v1421243523/nielsschelbach_j6u25r.jpg">
+            </p>
+            <p>
+                <strong>{{ entry.author }}</strong>
+            </p>
+            <ul class="team-social">
+                <li><a href="mailto:niels.schelbach@rocketbase.io"><i class="fa fa-envelope"></i></a></li>
+                <li><a href="https://www.facebook.com/niels.schelbach" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://plus.google.com/102598373731612040038" rel="publisher" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+            <p>
+                Freelancer
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7  col-md-offset-2">
+            <div disqus="entry.slug"></div>
+        </div>
+    </div>
+ </div>
