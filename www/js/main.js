@@ -20,8 +20,6 @@ $(window).resize(function(){
 	}	
 });
 
-
-
 // ****************************************************************
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 // ****************************************************************
@@ -34,25 +32,6 @@ $(function() {
 		}, 1500, 'easeInOutExpo');
 		event.preventDefault();
 	});
-});
-
-
-// ****************************************************************
-// owl-caurosel
-// ****************************************************************			
-			
-$(document).ready(function() {
- 
-	$("#featured-list").owlCarousel({
- 
-		items : 4, //4 items above 1000px browser width
-		itemsDesktop : [1000,4], //4 items between 1000px and 901px
-		itemsDesktopSmall : [900,2], // betweem 900px and 601px
-		itemsTablet: [600,1], //1 items between 600 and 0
-		itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
-	  
-	});
-   
 });
 
 
@@ -74,20 +53,6 @@ $(window).load(function(){
 	}
 });
 
-
-// ***********************************
-// stop video when modal close
-// ***********************************
-
-$(document).ready(function(){
-  $("#video-modal").on('hide.bs.modal', function(evt){
-    var player = $(evt.target).find('iframe'),
-        vidSrc = player.prop('src');
-    player.prop('src', ''); // to force it to pause
-    player.prop('src', vidSrc);
-  });
-});
-
 	
 // ***********************************
 // Backstretch - Slider on Background
@@ -102,20 +67,6 @@ $(".backstretch").backstretch([
 //   "images/bg3.jpg"
 //     "images/bg5.jpg"
 ], {duration: 5000, fade: 1000});
-							  
-
-
-// ***********************************
-// magnificPopup
-// ***********************************	
-
-$('.gallery-item').magnificPopup({
-  type: 'image',
-  gallery:{
-	enabled:true
-  }
-});
-
 
 
 // ****************************************************************
@@ -131,24 +82,6 @@ $(document).ready(function(){
 	);
 	wow.init();
 });
-
-
-// ****************************************************************
-// counterUp
-// ****************************************************************
-
-$(document).ready(function( $ ) {
-	if($("span.count").length > 0){	
-		$('span.count').counterUp({
-			delay: 10, // the delay time in ms
-			time: 1000 // the speed time in ms
-		});
-	}
-});
-
-
-
-
 		
 
 
