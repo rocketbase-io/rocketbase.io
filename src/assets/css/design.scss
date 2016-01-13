@@ -116,6 +116,10 @@ img.team {
   a, a:hover, a:focus {
     font-size: 30px;
     color: #fff;
+
+    @media print {
+      font-size: 1em;
+    }
   }
 }
 
@@ -245,6 +249,10 @@ footer {
 
 section {
   padding: 100px 0;
+
+  @media print {
+    padding: 10px 0;
+  }
 }
 
 aside {
@@ -347,6 +355,9 @@ aside {
 
 section.bg-concrete {
   padding-top: 150px;
+  @media print {
+    padding-top: 10px;
+  }
 }
 
 header.concrete {
