@@ -12,7 +12,7 @@
     // Offset for Main Navigation
     $('#mainNav').affix({
         offset: {
-            top: 100
+            top: 200
         }
     })
 
@@ -28,6 +28,10 @@
         if ($(".preloader").length > 0) {
             $('.preloader').fadeOut(1000); // set duration in brackets
         }
+
+        $('.carousel').carousel({
+            interval: 3000
+        });
     });
 
 

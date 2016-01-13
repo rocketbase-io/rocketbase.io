@@ -9,6 +9,8 @@ $theme-dark: #222;
 
 @import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "mixins";
+
 #rocketbase-logo {
   background: url('../images/rocketbase.svg');
   background-repeat: no-repeat;
@@ -108,6 +110,15 @@ img.team {
   padding-top: 0;
 }
 
+.team-social {
+  text-align: center;
+
+  a, a:hover, a:focus {
+    font-size: 30px;
+    color: #fff;
+  }
+}
+
 .skill-lists {
   ul {
     -webkit-column-count: 4;
@@ -122,9 +133,33 @@ img.team {
   }
 }
 
+.carousel-services {
+  margin-bottom: 20px;
+
+  .carousel-inner {
+    width: 100%;
+    img {
+      max-height: 600px;
+    }
+  }
+
+  .carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .fa {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    z-index: 5;
+    display: inline-block;
+    font-size: 30px;
+  }
+
+  .carousel-caption {
+    @include sans-serif-font;
+    font-size: 30px;
+  }
+}
+
 // THEME
 
-@import "mixins";
 
 // Global Components
 html,
@@ -177,6 +212,21 @@ p {
 
 .bg-dark {
   background-color: $theme-dark;
+  color: white;
+}
+
+.bg-yellow {
+  background-color: #FF8A00;
+  color: white;
+}
+
+.bg-green {
+  background-color: #2FB99A;
+  color: white;
+}
+
+.bg-blue {
+  background-color: #2898CD;
   color: white;
 }
 
