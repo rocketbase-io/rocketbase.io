@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     minifyHTML = require('gulp-minify-html'),
     header = require('gulp-header'),
     less = require('gulp-less'),
+    sass = require('gulp-sass'),
     minifyCss = require('gulp-minify-css'),
     uncss = require('gulp-uncss'),
     uglify = require('gulp-uglify'),
@@ -30,7 +31,7 @@ gulp.task('build', function (callback) {
 
     runSequence('clean',
         ['copy', 'handlebars', 'uglify:main'],
-        'less',
+        'sass',
         callback);
 
 });
@@ -81,10 +82,17 @@ gulp.task('less', ['bower'], function () {
         .pipe(browserSync.reload({stream: true}));
 });
 
+gulp.task('sass', ['bower'], function () {
+    return gulp.src('./src/assets/css/design.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('./build/css'))
+        .pipe(browserSync.reload({stream: true}));
+});
+
 gulp.task('uglify:main', function () {
-    return gulp.src(['./bower_components/jquery/jquery.js', './bower_components/jquery.easing/js/jquery.easing.js', './bower_components/bootstrap/dist/js/bootstrap.js', './bower_components/jquery-backstretch/jquery.backstretch.js', './bower_components/wow/dist/wow.js',
+    return gulp.src(['./bower_components/jquery/jquery.js', './bower_components/bootstrap-sass/assets/javascripts/bootstrap.js', './bower_components/vivus/dist/vivus.js',
         './src/assets/js/main.js'])
-        .pipe(uglify({compress: true}))
+        // .pipe(uglify({compress: true}))
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./build/js'))
         .pipe(browserSync.reload({stream: true}));
@@ -100,6 +108,9 @@ gulp.task('watch', function () {
     });
     watch(['./src/assets/css/**/*.less'], function () {
         gulp.run('less');
+    });
+    watch(['./src/assets/css/**/*.scss'], function () {
+        gulp.run('sass');
     });
     watch(['./src/assets/js/main.js'], function () {
         gulp.run('uglify:main');
