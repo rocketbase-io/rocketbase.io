@@ -3,5 +3,6 @@
 module.exports = {
     author: 'rocketbase.io',
     pkg: require('../../package.json'),
-    buildDate: new Date()
+    buildDate: new Date(),
+    companyTitle: 'rocketbase.io'
 };

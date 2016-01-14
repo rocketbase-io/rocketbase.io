@@ -7,7 +7,6 @@ var gulp = require('gulp'),
     hb = require('gulp-hb'),
     minifyHTML = require('gulp-minify-html'),
     header = require('gulp-header'),
-    less = require('gulp-less'),
     sass = require('gulp-sass'),
     minifyCss = require('gulp-minify-css'),
     uncss = require('gulp-uncss'),
@@ -73,25 +72,21 @@ gulp.task('handlebars', function () {
         .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('less', ['bower'], function () {
-    return gulp.src('./src/assets/css/design.less')
-        .pipe(less())
-        .pipe(uncss({html: ['./build/*.html'], ignore: [/(tooltip|popover|scrollUp|collapse|collapsing|nav|btn|form|alert)+.*/]}))
-        .pipe(minifyCss({compatibility: 'ie8'}))
-        .pipe(gulp.dest('./build/css'))
-        .pipe(browserSync.reload({stream: true}));
-});
-
 gulp.task('sass', ['bower'], function () {
     return gulp.src('./src/assets/css/design.scss')
         .pipe(sass())
         .pipe(gulp.dest('./build/css'))
+        .pipe(uncss({
+            html: ['./build/*.html'],
+            ignore: [/(tooltip|popover|scrollUp|collapse|collapsing|nav|btn|form|alert)+.*/]
+        }))
+        .pipe(minifyCss({compatibility: 'ie8'}))
         .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('uglify:main', function () {
-    return gulp.src(['./bower_components/jquery/jquery.js', './bower_components/bootstrap-sass/assets/javascripts/bootstrap.js', './bower_components/vivus/dist/vivus.js',
-        './src/assets/js/main.js'])
+    return gulp.src(['./bower_components/jquery/dist/jquery.js', './bower_components/bootstrap-sass/assets/javascripts/bootstrap.js', './bower_components/vivus/dist/vivus.js', './bower_components/scrollup/dist/jquery.scrollUp.js',
+            './src/assets/js/main.js'])
         // .pipe(uglify({compress: true}))
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./build/js'))

@@ -7,21 +7,8 @@
 $theme-primary: #EE2C38;
 $theme-dark: #222;
 
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
-
-@import "mixins";
-
-#rocketbase-logo {
-  background: url('../images/rocketbase.svg');
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
-  background-position: top left;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 10px;
-}
+@import "modules/bootstrap";
+@import "modules/mixins";
 
 .preloader {
   position: fixed;
@@ -87,6 +74,11 @@ nav.navbar {
   }
 }
 
+.rocketbase-logo {
+  max-height: 100px;
+  margin-bottom: 20px;
+}
+
 table.data {
   border-collapse: collapse;
 
@@ -101,7 +93,7 @@ img.team {
 
 .row.technology > [class*='col-'] {
   height: 140px;
-  svg {
+  img {
     max-height: 135px;
   }
 }
@@ -142,6 +134,9 @@ img.team {
 
   .carousel-inner {
     width: 100%;
+    .item {
+      padding: 50px 20px 100px 20px;
+    }
     img {
       max-height: 600px;
     }
@@ -162,8 +157,49 @@ img.team {
   }
 }
 
-// THEME
+img.services {
+  max-height: 375px;
+}
 
+// scrollup
+#scrollUp {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  font-size: 50px;
+  text-align: center;
+  color: #000;
+
+  &:before {
+    border-radius: 3px;
+    background-color: #A5A5A5;
+    opacity: .4;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '\0020';
+    display: block;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
+    z-index: -1;
+    margin-top: -5px;
+  }
+
+  @media (max-width: $container-tablet) {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+
+    &:before {
+      margin-top: -3px;
+    }
+  }
+
+}
 
 // Global Components
 html,
