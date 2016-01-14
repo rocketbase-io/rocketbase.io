@@ -5069,7 +5069,7 @@ nav.navbar li.only-in-collapse {
 
 .rocketbase-logo {
   max-height: 100px;
-  margin-bottom: 20px; }
+  margin: 0 auto 20px auto; }
 
 table.data {
   border-collapse: collapse; }
@@ -5113,7 +5113,8 @@ img.team {
     .carousel-services .carousel-inner .item {
       padding: 50px 20px 100px 20px; }
     .carousel-services .carousel-inner img {
-      max-height: 600px; }
+      max-height: 600px;
+      margin: 0 auto; }
   .carousel-services .carousel-control .icon-prev, .carousel-services .carousel-control .icon-next, .carousel-services .carousel-control .fa {
     position: absolute;
     top: 50%;
@@ -5248,7 +5249,7 @@ aside {
     color: #EE2C38;
     font-family: 'Josefin Sans', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 700;
-    text-transform: uppercase; }
+    font-size: 22px !important; }
     .navbar-default .navbar-header .navbar-brand:hover, .navbar-default .navbar-header .navbar-brand:focus {
       color: #d6111d; }
   .navbar-default .nav > li > a,
