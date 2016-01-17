@@ -79,7 +79,7 @@
 
         if (IEversion !== false) {
             function resizeSvg(maxWidth, maxHeight) {
-                $('.svg-responvie').each(function (i) {
+                $('.svg-responsive').each(function (i) {
                     var img = $(this);
                     var h = img.data('height'), w = img.data('width');
                     if (w > maxWidth) {
