@@ -5067,6 +5067,9 @@ nav.navbar li.only-in-collapse {
   nav.navbar li.only-in-none-collapse {
     display: none; } }
 
+.svg-responsive {
+  margin: 0px auto; }
+
 .rocketbase-logo {
   max-height: 100px;
   margin: 0 auto 20px auto; }
@@ -5105,9 +5108,6 @@ img.team {
       -webkit-column-count: 2;
       -moz-column-count: 2;
       column-count: 2; } }
-
-.svg-responsive {
-  margin: 0px auto; }
 
 .carousel-services {
   margin-bottom: 20px; }
@@ -5225,6 +5225,9 @@ footer {
   color: white; }
   footer a {
     color: white; }
+
+#contact a {
+  color: white; }
 
 .text-faded {
   color: fade(white, 70%); }
