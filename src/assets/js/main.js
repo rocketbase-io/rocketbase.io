@@ -4,14 +4,18 @@
         if ($(".preloader").length > 0) {
             $('.preloader').fadeOut(1000); // set duration in brackets
         }
-
     });
 
     $(document).ready(function () {
-        // Highlight the top nav as scrolling occurs
-        $('body').scrollspy({
-            target: '.navbar-fixed-top',
-            offset: 51
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function () {
+            $('a.page-scroll').bind('click', function (event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
         });
 
 
@@ -29,7 +33,7 @@
 
 
         $('.carousel').carousel({
-            interval: 3000
+            interval: 2500
         });
 
 
@@ -61,13 +65,11 @@
                 return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
             }
 
-            /*
-             var edge = ua.indexOf('Edge/');
-             if (edge > 0) {
-             // Edge (IE 12+) => return version number
-             return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-             }
-             */
+            var edge = ua.indexOf('Edge/');
+            if (edge > 0) {
+                // Edge (IE 12+) => return version number
+                return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+            }
 
             // other browser
             return false;

@@ -85,7 +85,7 @@ gulp.task('sass', ['bower'], function () {
 });
 
 gulp.task('uglify:main', function () {
-    return gulp.src(['./bower_components/jquery/dist/jquery.js', './bower_components/bootstrap-sass/assets/javascripts/bootstrap.js', './bower_components/vivus/dist/vivus.js', './bower_components/scrollup/dist/jquery.scrollUp.js',
+    return gulp.src(['./bower_components/jquery/dist/jquery.js', 'bower_components/jquery.easing/js/jquery.easing.js', './bower_components/bootstrap-sass/assets/javascripts/bootstrap.js', './bower_components/vivus/dist/vivus.js', './bower_components/scrollup/dist/jquery.scrollUp.js',
             './src/assets/js/main.js'])
         // .pipe(uglify({compress: true}))
         .pipe(concat('main.js'))

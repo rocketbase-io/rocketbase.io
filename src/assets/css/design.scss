@@ -74,6 +74,10 @@ nav.navbar {
   }
 }
 
+.svg-responsive {
+  margin: 0px auto;
+}
+
 .rocketbase-logo {
   max-height: 100px;
   margin: 0 auto 20px auto;
@@ -127,10 +131,6 @@ img.team {
       column-count: 2;
     }
   }
-}
-
-.svg-responsive {
-  margin: 0px auto;
 }
 
 .carousel-services {
@@ -279,6 +279,12 @@ footer {
   background-color: lighten($theme-dark, 20%);
   color: white;
 
+  a {
+    color: white;
+  }
+}
+
+#contact {
   a {
     color: white;
   }
