@@ -5106,6 +5106,9 @@ img.team {
       -moz-column-count: 2;
       column-count: 2; } }
 
+.svg-responsive {
+  margin: 0px auto; }
+
 .carousel-services {
   margin-bottom: 20px; }
   .carousel-services .carousel-inner {
