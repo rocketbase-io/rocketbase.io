@@ -54,9 +54,7 @@ $theme-dark: #222;
 
 svg.hamburg-wappen {
   margin-bottom: 20px;
-  @media (max-width: ($screen-sm-min - 1px)) {
-    max-height: 250px;
-  }
+  max-height: 250px;
 }
 
 nav.navbar {
@@ -81,6 +79,30 @@ nav.navbar {
 .rocketbase-logo {
   max-height: 100px;
   margin: 0 auto 20px auto;
+}
+
+.bottom-aligned {
+  position: absolute;
+  bottom: 0;
+  margin: 0 5px 0 5px;
+
+  @media (min-width: $screen-sm-min) {
+    width: ($container-sm - 10px);
+  }
+  @media (min-width: $screen-md-min) {
+    width: ($container-md - 10px);
+  }
+  @media (min-width: $screen-lg-min) {
+    width: ($container-lg - 10px);
+  }
+
+  .text-marked {
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+    padding: 10px;
+    display: inline-block;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+  }
 }
 
 table.data {
@@ -111,7 +133,6 @@ img.team {
 
   a, a:hover, a:focus {
     font-size: 30px;
-    color: #fff;
 
     @media print {
       font-size: 1em;
@@ -164,6 +185,29 @@ img.team {
 
 img.services {
   max-height: 375px;
+  padding: 30px;
+}
+
+.box-circle {
+  border-radius: 50%;
+  padding: 20px;
+  margin: 0 auto;
+
+  @media (min-width: $screen-sm-min) {
+    width: ($container-sm / 3);
+    height: ($container-sm / 3);
+  }
+  @media (min-width: $screen-md-min) {
+    width: ($container-md / 4);
+    height: ($container-md / 4);
+  }
+  @media (min-width: $screen-lg-min) {
+    width: ($container-lg / 4);
+    height: ($container-lg / 4);
+  }
+
+  width: 220px;
+  height: 220px;
 }
 
 // scrollup
@@ -385,6 +429,19 @@ aside {
         &:hover {
           color: $theme-primary;
         }
+      }
+    }
+
+    .brand-logo {
+      display: inline-block;
+      background-image: url('../images/rocketbase-logo.png');
+      background-size: 24px 24px;
+      background-position-x: 5px;
+      background-position-y: center;
+      background-repeat: no-repeat;
+
+      .navbar-brand {
+        margin-left: 23px;
       }
     }
   }
