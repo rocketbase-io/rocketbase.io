@@ -13615,6 +13615,9 @@ parsePositiveInt = function (value, defaultValue) {
             interval: 2500
         });
 
+        // aktivate Tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+
 
         $.scrollUp({
             animation: 'fade',

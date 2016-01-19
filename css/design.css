@@ -5052,10 +5052,8 @@ button.close {
     color: black; }
 
 svg.hamburg-wappen {
-  margin-bottom: 20px; }
-  @media (max-width: 767px) {
-    svg.hamburg-wappen {
-      max-height: 250px; } }
+  margin-bottom: 20px;
+  max-height: 250px; }
 
 nav.navbar li.only-in-collapse {
   display: none; }
@@ -5073,6 +5071,26 @@ nav.navbar li.only-in-collapse {
 .rocketbase-logo {
   max-height: 100px;
   margin: 0 auto 20px auto; }
+
+.bottom-aligned {
+  position: absolute;
+  bottom: 0;
+  margin: 0 5px 0 5px; }
+  @media (min-width: 768px) {
+    .bottom-aligned {
+      width: 740px; } }
+  @media (min-width: 992px) {
+    .bottom-aligned {
+      width: 960px; } }
+  @media (min-width: 1200px) {
+    .bottom-aligned {
+      width: 1160px; } }
+  .bottom-aligned .text-marked {
+    text-shadow: 1px 1px 1px white;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7); }
 
 table.data {
   border-collapse: collapse; }
@@ -5093,8 +5111,7 @@ img.team {
 .team-social {
   text-align: center; }
   .team-social a, .team-social a:hover, .team-social a:focus {
-    font-size: 30px;
-    color: #fff; }
+    font-size: 30px; }
     @media print {
       .team-social a, .team-social a:hover, .team-social a:focus {
         font-size: 1em; } }
@@ -5116,7 +5133,7 @@ img.team {
     .carousel-services .carousel-inner .item {
       padding: 50px 20px 100px 20px; }
     .carousel-services .carousel-inner img {
-      max-height: 600px;
+      max-height: 400px;
       margin: 0 auto; }
   .carousel-services .carousel-control .icon-prev, .carousel-services .carousel-control .icon-next, .carousel-services .carousel-control .fa {
     position: absolute;
@@ -5130,7 +5147,72 @@ img.team {
     font-size: 30px; }
 
 img.services {
-  max-height: 375px; }
+  max-height: 375px;
+  padding: 30px; }
+
+.box-circle {
+  border-radius: 50%;
+  padding: 20px;
+  margin: 0 auto;
+  width: 220px;
+  height: 220px; }
+  @media (min-width: 768px) {
+    .box-circle {
+      width: 250px;
+      height: 250px; } }
+  @media (min-width: 992px) {
+    .box-circle {
+      width: 242.5px;
+      height: 242.5px; } }
+  @media (min-width: 1200px) {
+    .box-circle {
+      width: 292.5px;
+      height: 292.5px; } }
+
+.services .row.vertical-line {
+  background-repeat: repeat-y; }
+  @media (min-width: 992px) {
+    .services .row.vertical-line {
+      background-image: url("../images/dashed-line.png");
+      background-position-x: 160px;
+      background-size: 5px 10px; } }
+  @media (min-width: 1200px) {
+    .services .row.vertical-line {
+      background-image: url("../images/dashed-line.png");
+      background-position-x: 195px;
+      background-size: 8px 16px; } }
+
+.services blockquote {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 16px;
+  border: none;
+  margin: 1em 0px;
+  padding: 1em 1em;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1em;
+  min-height: 60px; }
+  .services blockquote:before {
+    display: block;
+    float: left;
+    content: "\201C";
+    font-size: 100px;
+    margin-right: 10px;
+    color: #fff;
+    background-color: #555555;
+    padding: 7px 0 0 0;
+    width: 50px;
+    height: 50px;
+    line-height: 90px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%; }
+  .services blockquote cite {
+    position: relative;
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+    color: #999; }
 
 #scrollUp {
   width: 80px;
@@ -5301,7 +5383,16 @@ aside {
           color: #222; }
           .navbar-default.affix .nav > li > a:hover,
           .navbar-default.affix .nav > li > a:focus:hover {
-            color: #EE2C38; } }
+            color: #EE2C38; }
+      .navbar-default .brand-logo {
+        display: inline-block;
+        background-image: url("../images/rocketbase-logo.png");
+        background-size: 24px 24px;
+        background-position-x: 5px;
+        background-position-y: center;
+        background-repeat: no-repeat; }
+        .navbar-default .brand-logo .navbar-brand {
+          margin-left: 23px; } }
 
 .bg-concrete {
   -webkit-background-size: cover;
