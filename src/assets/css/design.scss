@@ -163,7 +163,7 @@ img.team {
       padding: 50px 20px 100px 20px;
     }
     img {
-      max-height: 600px;
+      max-height: 400px;
       margin: 0 auto;
     }
   }
@@ -208,6 +208,58 @@ img.services {
 
   width: 220px;
   height: 220px;
+}
+
+.services {
+  .row.vertical-line {
+    background-repeat: repeat-y;
+
+    @media (min-width: $screen-md-min) {
+      background-image: url('../images/dashed-line.png');
+      background-position-x: 160px;
+      background-size: 5px 10px;
+    }
+    @media (min-width: $screen-lg-min) {
+      background-image: url('../images/dashed-line.png');
+      background-position-x: 195px;
+      background-size: 8px 16px;
+    }
+  }
+  blockquote {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 16px;
+    border: none;
+    margin: 1em 0px;
+    padding: 1em 1em;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 1em;
+    min-height: 60px;
+
+    &:before {
+      display: block;
+      float: left;
+      content: "\201C";
+      font-size: 100px;
+      margin-right: 10px;
+      color: #fff;
+      background-color: $gray;
+      padding: 7px 0 0 0;
+      width: 50px;
+      height: 50px;
+      line-height: 90px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+    }
+    cite {
+      position: relative;
+      display: block;
+      text-align: right;
+      margin-top: 5px;
+      color: #999;
+    }
+  }
 }
 
 // scrollup
@@ -393,8 +445,8 @@ aside {
           }
         }
       }
+      }
     }
-  }
   @media (min-width: 768px) {
     background-color: transparent;
     border-color: fade(white, 30%);
@@ -445,7 +497,7 @@ aside {
       }
     }
   }
-}
+  }
 
 // Homepage Header
 
@@ -495,7 +547,7 @@ header.concrete {
         margin-bottom: 50px;
       }
     }
-  }
+    }
   @media (min-width: 768px) {
     min-height: 100%;
     .header-content {
@@ -517,8 +569,8 @@ header.concrete {
         }
       }
     }
+    }
   }
-}
 
 header.desk {
   position: relative;
@@ -587,7 +639,7 @@ header.desk {
         font-size: 18px;
       }
     }
-  }
+    }
   &:hover {
     .portfolio-box-caption {
       opacity: 1;
