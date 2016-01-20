@@ -11,8 +11,7 @@ keyword:        Consulting + Development in Hamburg, Java, Spring, Vaadin, Angul
         <header class="concrete hidden-print">
             <div class="header-content container">
                 <div class="header-content-inner">
-                    <svg viewBox="0 0 1050 800" class="svg-responsive img-responsive" id="idea" data-height="762"
-                         data-width="1000"
+                    <svg viewBox="0 0 1050 800" class="rocketbase-idea" id="idea"
                          xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                          clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
                         <g fill="none" stroke="#222" style="opacity: 0.9">
@@ -73,12 +72,12 @@ keyword:        Consulting + Development in Hamburg, Java, Spring, Vaadin, Angul
         </header>
 
 
-        <section class="bg-primary" id="about">
+        <section id="about" class="bg-gray">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 hidden-print">
-                        <img class="hamburg-wappen svg-responsive img-responsive" src="images/hamburg-wappen.svg"
-                             data-height="300" data-width="220"
+                        <img class="hamburg-wappen img-responsive img-thumbnail"
+                             src="images/hamburg-wappen.png"
                              alt="Hamburg Wappen">
                     </div>
                     <div class="col-sm-8 col-md-offset-1 text-center">
@@ -174,7 +173,9 @@ keyword:        Consulting + Development in Hamburg, Java, Spring, Vaadin, Angul
 
     {{#content "customScript"}}
         <script>
-            var idea = new Vivus('idea', {type: 'scenario-sync', duration: 40, forceRender: false});
+            (function (Vivus) {
+                new Vivus('idea', {type: 'scenario-sync', duration: 40, forceRender: false, start: 'autostart'});
+            })(Vivus);
         </script>
     {{/content}}
 

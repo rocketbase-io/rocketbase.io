@@ -1,5 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
-
 /*
  * include bootstrap
  */
@@ -52,8 +51,25 @@ $theme-dark: #222;
   }
 }
 
-svg.hamburg-wappen {
-  margin-bottom: 20px;
+.rocketbase-idea {
+  @media (min-width: $screen-sm-min) and (min-height: 550px) {
+    width: 600px;
+    height: 480px;
+  }
+  @media (min-width: $screen-md-min) and (min-height: 800px) {
+    width: 900px;
+    height: 720px;
+  }
+  @media (min-width: $screen-lg-min) and (min-height: 850px) {
+    width: 1000px;
+    height: 800px;
+  }
+
+  width: 263px;
+  height: 200px;
+}
+
+img.hamburg-wappen {
   max-height: 250px;
 }
 
@@ -133,6 +149,8 @@ img.team {
 
   a, a:hover, a:focus {
     font-size: 30px;
+    color: $theme-dark;
+    text-decoration: none;
 
     @media print {
       font-size: 1em;
@@ -146,10 +164,28 @@ img.team {
     -moz-column-count: 4;
     column-count: 4;
 
-    @media (max-width: ($screen-sm-min - 1px)) {
+    @media (max-width: ($screen-xs-min - 1px)) {
       -webkit-column-count: 2;
       -moz-column-count: 2;
       column-count: 2;
+    }
+    a {
+      color: #000;
+
+      &:hover {
+        color: $theme-primary;
+        text-decoration: none;
+      }
+
+      &:after {
+        font-family: FontAwesome;
+        content: " \f0c1";
+        opacity: 0.4;
+
+        @media print {
+          display: none;
+        }
+      }
     }
   }
 }
@@ -401,6 +437,13 @@ p {
   background-color: $theme-primary;
 }
 
+.bg-gray {
+  background-color: #F2F2F2;
+}
+
+.bg-gray-darker {
+  background-color: #cacaca;
+}
 .bg-dark {
   background-color: $theme-dark;
   color: white;
@@ -433,6 +476,11 @@ footer {
 #contact {
   a {
     color: white;
+
+    &:hover {
+      color: $theme-primary;
+      text-decoration: none;
+    }
   }
 }
 
