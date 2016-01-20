@@ -5051,8 +5051,23 @@ button.close {
   .navbar.affix-top .navbar-header .navbar-brand:hover, .navbar.affix-top .navbar-header .navbar-brand:focus {
     color: black; }
 
-svg.hamburg-wappen {
-  margin-bottom: 20px;
+.rocketbase-idea {
+  width: 263px;
+  height: 200px; }
+  @media (min-width: 768px) and (min-height: 550px) {
+    .rocketbase-idea {
+      width: 600px;
+      height: 480px; } }
+  @media (min-width: 992px) and (min-height: 800px) {
+    .rocketbase-idea {
+      width: 900px;
+      height: 720px; } }
+  @media (min-width: 1200px) and (min-height: 850px) {
+    .rocketbase-idea {
+      width: 1000px;
+      height: 800px; } }
+
+img.hamburg-wappen {
   max-height: 250px; }
 
 nav.navbar li.only-in-collapse {
@@ -5111,7 +5126,9 @@ img.team {
 .team-social {
   text-align: center; }
   .team-social a, .team-social a:hover, .team-social a:focus {
-    font-size: 30px; }
+    font-size: 30px;
+    color: #222;
+    text-decoration: none; }
     @media print {
       .team-social a, .team-social a:hover, .team-social a:focus {
         font-size: 1em; } }
@@ -5120,11 +5137,23 @@ img.team {
   -webkit-column-count: 4;
   -moz-column-count: 4;
   column-count: 4; }
-  @media (max-width: 767px) {
+  @media (max-width: 479px) {
     .skill-lists ul {
       -webkit-column-count: 2;
       -moz-column-count: 2;
       column-count: 2; } }
+  .skill-lists ul a {
+    color: #000; }
+    .skill-lists ul a:hover {
+      color: #EE2C38;
+      text-decoration: none; }
+    .skill-lists ul a:after {
+      font-family: FontAwesome;
+      content: " \f0c1";
+      opacity: 0.4; }
+      @media print {
+        .skill-lists ul a:after {
+          display: none; } }
 
 .carousel-services {
   margin-bottom: 20px; }
@@ -5184,35 +5213,69 @@ img.services {
 
 .services blockquote {
   font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 16px;
+  font-style: italic;
+  font-size: 1em;
   border: none;
   margin: 1em 0px;
   padding: 1em 1em;
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-style: italic;
-  font-size: 1em;
   min-height: 60px; }
   .services blockquote:before {
     display: block;
     float: left;
-    content: "\201C";
-    font-size: 100px;
+    content: " ";
     margin-right: 10px;
-    color: #fff;
-    background-color: #555555;
+    background-color: #fafafa;
+    border: 1px solid #eeeeee;
     padding: 7px 0 0 0;
-    width: 50px;
-    height: 50px;
-    line-height: 90px;
+    width: 100px;
+    height: 100px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    border-radius: 50%; }
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 70px 70px; }
+  .services blockquote.bonprix:before {
+    background-image: url("../images/quote/logo-bonprix.png"); }
+  .services blockquote.smart-it4com:before {
+    background-image: url("../images/quote/logo-smartit4com.png"); }
+  .services blockquote.hamburg-de:before {
+    background-image: url("../images/quote/logo-hamburg-de.png"); }
+  .services blockquote.schelbachhome:before {
+    background-image: url("../images/quote/logo-schelbachhome.png"); }
+  .services blockquote.findeling:before {
+    background-image: url("../images/quote/logo-findeling.png"); }
   .services blockquote cite {
     position: relative;
     display: block;
     text-align: right;
-    margin-top: 5px;
+    padding-top: 20px;
     color: #999; }
+    .services blockquote cite:after {
+      display: block;
+      float: right;
+      content: " ";
+      margin: -15px 0 0 10px;
+      width: 50px;
+      height: 50px;
+      background-color: #fafafa;
+      border: 1px solid #eeeeee;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50px 50px; }
+    .services blockquote cite.globisch:after {
+      background-image: url("../images/quote/profile-globisch.jpg"); }
+    .services blockquote cite.nissanka:after {
+      background-image: url("../images/quote/profile-nissanka.jpg"); }
+    .services blockquote cite.schusterius:after {
+      background-image: url("../images/quote/profile-schusterius.jpg"); }
+    .services blockquote cite.rschneider:after {
+      background-image: url("../images/quote/profile-rschneider.jpg"); }
+    .services blockquote cite.fschneider:after {
+      background-image: url("../images/quote/profile-fschneider.jpg"); }
 
 #scrollUp {
   width: 80px;
@@ -5286,6 +5349,12 @@ p {
 .bg-primary {
   background-color: #EE2C38; }
 
+.bg-gray {
+  background-color: #F2F2F2; }
+
+.bg-gray-darker {
+  background-color: #cacaca; }
+
 .bg-dark {
   background-color: #222;
   color: white; }
@@ -5310,6 +5379,9 @@ footer {
 
 #contact a {
   color: white; }
+  #contact a:hover {
+    color: #EE2C38;
+    text-decoration: none; }
 
 .text-faded {
   color: fade(white, 70%); }
