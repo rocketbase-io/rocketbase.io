@@ -5203,12 +5203,12 @@ img.services {
   @media (min-width: 992px) {
     .services .row.vertical-line {
       background-image: url("../images/dashed-line.png");
-      background-position-x: 160px;
+      background-position-x: 157px;
       background-size: 5px 10px; } }
   @media (min-width: 1200px) {
     .services .row.vertical-line {
       background-image: url("../images/dashed-line.png");
-      background-position-x: 195px;
+      background-position-x: 191px;
       background-size: 8px 16px; } }
 
 .services blockquote {
