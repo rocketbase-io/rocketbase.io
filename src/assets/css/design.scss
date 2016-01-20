@@ -227,37 +227,87 @@ img.services {
   }
   blockquote {
     font-family: Georgia, Times, "Times New Roman", serif;
-    font-size: 16px;
+    font-style: italic;
+    font-size: 1em;
+
     border: none;
     margin: 1em 0px;
     padding: 1em 1em;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-style: italic;
-    font-size: 1em;
     min-height: 60px;
 
     &:before {
       display: block;
       float: left;
-      content: "\201C";
-      font-size: 100px;
+      content: " ";
       margin-right: 10px;
-      color: #fff;
-      background-color: $gray;
+      background-color: #fafafa;
+      border: 1px solid $gray-lighter;
       padding: 7px 0 0 0;
-      width: 50px;
-      height: 50px;
-      line-height: 90px;
+      width: 100px;
+      height: 100px;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 70px 70px;
     }
+
+    &.bonprix:before {
+      background-image: url('../images/quote/logo-bonprix.png');
+    }
+    &.smart-it4com:before {
+      background-image: url('../images/quote/logo-smartit4com.png');
+    }
+    &.hamburg-de:before {
+      background-image: url('../images/quote/logo-hamburg-de.png');
+    }
+    &.schelbachhome:before {
+      background-image: url('../images/quote/logo-schelbachhome.png');
+    }
+    &.findeling:before {
+      background-image: url('../images/quote/logo-findeling.png');
+    }
+
     cite {
       position: relative;
       display: block;
       text-align: right;
-      margin-top: 5px;
+      padding-top: 20px;
       color: #999;
+
+      &:after {
+        display: block;
+        float: right;
+        content: " ";
+        margin: -15px 0 0 10px;
+        width: 50px;
+        height: 50px;
+        background-color: #fafafa;
+        border: 1px solid $gray-lighter;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50px 50px;
+      }
+
+      &.globisch:after {
+        background-image: url('../images/quote/profile-globisch.jpg');
+      }
+      &.nissanka:after {
+        background-image: url('../images/quote/profile-nissanka.jpg');
+      }
+      &.schusterius:after {
+        background-image: url('../images/quote/profile-schusterius.jpg');
+      }
+      &.rschneider:after {
+        background-image: url('../images/quote/profile-rschneider.jpg');
+      }
+      &.fschneider:after {
+        background-image: url('../images/quote/profile-fschneider.jpg');
+      }
     }
   }
 }
