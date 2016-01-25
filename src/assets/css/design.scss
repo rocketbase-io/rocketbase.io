@@ -252,12 +252,12 @@ img.services {
 
     @media (min-width: $screen-md-min) {
       background-image: url('../images/dashed-line.png');
-      background-position-x: 157px;
+      background-position: 157px 0;
       background-size: 5px 10px;
     }
     @media (min-width: $screen-lg-min) {
       background-image: url('../images/dashed-line.png');
-      background-position-x: 191px;
+      background-position: 191px 0;
       background-size: 8px 16px;
     }
   }
