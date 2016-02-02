@@ -109,7 +109,8 @@ gulp.task('watch', function () {
 
 gulp.task('browserSync', function () {
     return browserSync.init({
-        server: "./build"
+        server: "./build",
+        browser: "none"
     });
 });
 
