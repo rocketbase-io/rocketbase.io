@@ -5333,6 +5333,9 @@ a {
   a:hover, a:focus {
     color: #d6111d; }
 
+img.img-center {
+  margin: 0 auto; }
+
 h1,
 h2,
 h3,
@@ -5460,8 +5463,7 @@ aside {
         display: inline-block;
         background-image: url("../images/rocketbase-logo.png");
         background-size: 24px 24px;
-        background-position-x: 5px;
-        background-position-y: center;
+        background-position: 5px center;
         background-repeat: no-repeat; }
         .navbar-default .brand-logo .navbar-brand {
           margin-left: 23px; } }
