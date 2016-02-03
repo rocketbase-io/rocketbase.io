@@ -12401,7 +12401,7 @@ if (typeof jQuery === 'undefined') {
 
 /**
  * vivus - JavaScript library to make drawing animation on SVG
- * @version v0.2.3
+ * @version v0.3.0
  * @link https://github.com/maxwellito/vivus
  * @license MIT
  */
@@ -12769,8 +12769,7 @@ Vivus.prototype.setElement = function (element, options) {
     var objElm = document.createElement('object');
     objElm.setAttribute('type', 'image/svg+xml');
     objElm.setAttribute('data', options.file);
-    objElm.setAttribute('width', '100%');
-    objElm.setAttribute('height', '100%');
+    objElm.setAttribute('built-by-vivus', 'true');
     element.appendChild(objElm);
     element = objElm;
   }
@@ -12783,25 +12782,34 @@ Vivus.prototype.setElement = function (element, options) {
     break;
 
   case window.HTMLObjectElement:
-    // If the Object is already loaded
-    this.el = element.contentDocument && element.contentDocument.querySelector('svg');
-    if (this.el) {
-      this.isReady = true;
-      return;
-    }
-
     // If we have to wait for it
-    var self = this;
-    element.addEventListener('load', function () {
+    var onLoad, self;
+    
+    self = this;
+    onLoad = function (e) {
+      if (self.isReady) {
+        return;
+      }
       self.el = element.contentDocument && element.contentDocument.querySelector('svg');
-      if (!self.el) {
+      if (!self.el && e) {
         throw new Error('Vivus [constructor]: object loaded does not contain any SVG');
       }
-      else {
+      else if (self.el) {
+        if (element.getAttribute('built-by-vivus')) {
+          self.parentEl.insertBefore(self.el, element);
+          self.parentEl.removeChild(element);
+          self.el.setAttribute('width', '100%');
+          self.el.setAttribute('height', '100%');
+        }
         self.isReady = true;
         self.init();
+        return true;
       }
-    });
+    };
+
+    if (!onLoad()) {
+      element.addEventListener('load', onLoad);
+    }
     break;
 
   default:
@@ -12847,10 +12855,11 @@ Vivus.prototype.setOptions = function (options) {
   this.isIE        = (window.navigator.userAgent.indexOf('MSIE') !== -1 || window.navigator.userAgent.indexOf('Trident/') !== -1 || window.navigator.userAgent.indexOf('Edge/') !== -1 );
   this.duration    = parsePositiveInt(options.duration, 120);
   this.delay       = parsePositiveInt(options.delay, null);
-  this.dashGap     = parsePositiveInt(options.dashGap, 2);
+  this.dashGap     = parsePositiveInt(options.dashGap, 1);
   this.forceRender = options.hasOwnProperty('forceRender') ? !!options.forceRender : this.isIE;
   this.selfDestroy = !!options.selfDestroy;
   this.onReady     = options.onReady;
+  this.frameLength = this.currentFrame = this.map = this.delayUnit = this.speed = this.handle = null;
 
   this.ignoreInvisible = options.hasOwnProperty('ignoreInvisible') ? !!options.ignoreInvisible : false;
 
@@ -12924,15 +12933,12 @@ Vivus.prototype.mapping = function () {
       }
       continue;
     }
-    totalLength += pathObj.length;
     this.map.push(pathObj);
-    path.style.strokeDasharray  = pathObj.length + ' ' + (pathObj.length + this.dashGap);
-    path.style.strokeDashoffset = pathObj.length;
+    path.style.strokeDasharray  = pathObj.length + ' ' + (pathObj.length + this.dashGap * 2);
+    path.style.strokeDashoffset = pathObj.length + this.dashGap;
+    pathObj.length += this.dashGap;
+    totalLength += pathObj.length;
 
-    // Fix IE glitch
-    if (this.isIE) {
-      pathObj.length += this.dashGap;
-    }
     this.renderPath(i);
   }
 
@@ -13205,7 +13211,7 @@ Vivus.prototype.play = function (speed) {
 Vivus.prototype.stop = function () {
   if (this.handle) {
     cancelAnimFrame(this.handle);
-    delete this.handle;
+    this.handle = null;
   }
   return this;
 };
