@@ -5335,6 +5335,9 @@ a {
 
 img.img-center {
   margin: 0 auto; }
+  @media (max-width: 767px) {
+    img.img-center.img-xs-margin-bottom {
+      margin: 0 auto 20px auto; } }
 
 h1,
 h2,
