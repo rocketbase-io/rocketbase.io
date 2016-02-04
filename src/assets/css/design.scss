@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+
 /*
  * include bootstrap
  */
@@ -420,6 +421,12 @@ a {
 
 img.img-center {
   margin: 0 auto;
+
+  &.img-xs-margin-bottom {
+    @media (max-width: $screen-xs-max) {
+      margin: 0 auto 20px auto;
+    }
+  }
 }
 
 h1,
@@ -448,6 +455,7 @@ p {
 .bg-gray-darker {
   background-color: #cacaca;
 }
+
 .bg-dark {
   background-color: $theme-dark;
   color: white;
@@ -547,8 +555,8 @@ aside {
           }
         }
       }
-      }
     }
+  }
   @media (min-width: 768px) {
     background-color: transparent;
     border-color: fade(white, 30%);
@@ -598,7 +606,7 @@ aside {
       }
     }
   }
-  }
+}
 
 // Homepage Header
 
@@ -648,7 +656,7 @@ header.concrete {
         margin-bottom: 50px;
       }
     }
-    }
+  }
   @media (min-width: 768px) {
     min-height: 100%;
     .header-content {
@@ -670,8 +678,8 @@ header.concrete {
         }
       }
     }
-    }
   }
+}
 
 header.desk {
   position: relative;
@@ -740,7 +748,7 @@ header.desk {
         font-size: 18px;
       }
     }
-    }
+  }
   &:hover {
     .portfolio-box-caption {
       opacity: 1;
