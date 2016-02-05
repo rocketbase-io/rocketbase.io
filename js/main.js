@@ -13585,11 +13585,13 @@ parsePositiveInt = function (value, defaultValue) {
 
 (function ($) {
 
+    /*
     $(window).load(function () {
         if ($(".preloader").length > 0) {
             $('.preloader').fadeOut(1000); // set duration in brackets
         }
     });
+    */
 
     $(document).ready(function () {
         // jQuery for page scrolling feature - requires jQuery Easing plugin
