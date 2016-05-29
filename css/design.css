@@ -5018,6 +5018,63 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.eupopup-container {
+  background-color: rgba(25, 25, 25, 0.9);
+  color: #efefef;
+  padding: 5px 20px;
+  font-size: 12px;
+  line-height: 1.2em;
+  text-align: center;
+  display: none;
+  z-index: 9999999;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 300px; }
+  @media (max-width: 600px) {
+    .eupopup-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%; }
+      .eupopup-container .eupopup-body {
+        padding-bottom: 5px; }
+      .eupopup-container .eupopup-buttons, .eupopup-container .eupopup-body span.init {
+        display: none; } }
+  .eupopup-container .clearfix {
+    clear: both; }
+  .eupopup-container .eupopup-head {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 7px;
+    color: #fff; }
+  .eupopup-container .eupopup-body {
+    color: #a2a2a2; }
+  .eupopup-container .eupopup-buttons {
+    padding: 7px 0 5px 0; }
+  .eupopup-container .eupopup-button {
+    cursor: pointer; }
+    .eupopup-container .eupopup-button.eupopup-close {
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.7);
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px 10px; }
+      .eupopup-container .eupopup-button.eupopup-close:hover, .eupopup-container .eupopup-button.eupopup-close:active {
+        color: #fff;
+        text-decoration: none; }
+    .eupopup-container .eupopup-button.eupopup-ok {
+      color: #EE2C38;
+      font-weight: bold;
+      font-size: 14px;
+      margin: 0 10px; }
+      .eupopup-container .eupopup-button.eupopup-ok:hover, .eupopup-container .eupopup-button.eupopup-ok:focus {
+        text-decoration: underline; }
+
 .navbar.affix-top {
   background: rgba(255, 255, 255, 0.6); }
   .navbar.affix-top .nav > li > a {
@@ -5600,11 +5657,13 @@ header.desk {
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s; }
-  .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle& {
+  .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active,
+  .open > .dropdown-toggle .btn-default {
     color: #222;
     background-color: #f2f2f2;
     border-color: #ededed; }
-  .btn-default:active, .btn-default.active, .open > .dropdown-toggle& {
+  .btn-default:active, .btn-default.active,
+  .open > .dropdown-toggle .btn-default {
     background-image: none; }
   .btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled.focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled].focus, .btn-default[disabled]:active, .btn-default[disabled].active,
   fieldset[disabled] .btn-default,
@@ -5626,11 +5685,13 @@ header.desk {
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s; }
-  .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle& {
+  .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active,
+  .open > .dropdown-toggle .btn-primary {
     color: white;
     background-color: #ec1422;
     border-color: #e4121f; }
-  .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle& {
+  .btn-primary:active, .btn-primary.active,
+  .open > .dropdown-toggle .btn-primary {
     background-image: none; }
   .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active,
   fieldset[disabled] .btn-primary,
