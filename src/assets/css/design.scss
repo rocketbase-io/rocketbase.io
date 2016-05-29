@@ -9,6 +9,7 @@ $theme-dark: #222;
 
 @import "modules/bootstrap";
 @import "modules/mixins";
+@import "modules/eupopup";
 
 .navbar.affix-top {
   background: rgba(255, 255, 255, 0.6);
