@@ -49,6 +49,10 @@
   margin: 0 auto;
 }
 
+.mi-slider ul li img.clickable {
+  cursor: pointer;
+}
+
 .mi-slider ul li a {
   outline: none;
   cursor: pointer;
