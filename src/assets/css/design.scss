@@ -10,6 +10,7 @@ $theme-dark: #222;
 @import "modules/bootstrap";
 @import "modules/mixins";
 @import "modules/eupopup";
+@import "modules/slider";
 
 .navbar.affix-top {
   background: rgba(255, 255, 255, 0.6);
@@ -123,6 +124,10 @@ img.team {
 
 .team-social {
   text-align: center;
+
+  @media (max-width: $screen-sm-max) {
+    margin: -10px 0 20px 0;
+  }
 
   a, a:hover, a:focus {
     font-size: 30px;

@@ -120,7 +120,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('copy', function () {
-    return gulp.src(['./src/assets/**', '!./src/assets/{css,js}{,/**}', './CNAME'])
+    return gulp.src(['./src/assets/**', '!./src/assets/css/**', , '!./src/assets/js/main.js', './CNAME'])
         .pipe(gulp.dest('build'));
 });
 

@@ -1,0 +1,104 @@
+---
+title:          Work for rocketbase.io
+description:    Wir sind immer auf der Suche nach engagierten Studenten und auch Freiberufler die Lust haben gemeinsam an spannenden Projekten zu arbeiten.
+keyword:        Niels Schelbach, Marten Prieß, Jobs, Java, Spring, Vaadin, AngularJs
+---
+{{#extend "layout"}}
+
+    {{#content "customHeader"}}
+        <script src="js/modernizr-custom.js?v=1"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
+    {{/content}}
+
+    {{#content "content"}}
+
+        <section class="bg-concrete" id="heading">
+
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="text-center">
+                        <h1 class="section-heading">Arbeiten bei rocketbase.io</h1>
+                    </div>
+                </div>
+                <div id="mi-slider" class="mi-slider">
+                    <ul>
+                        <li><img src="images/work/office/office_entry_thumb.jpg" class="img-thumbnail" data-remote="images/work/office/office_entry.jpg"
+                                 alt="Büro-Eingang rocketbase.io"
+                                 data-toggle="lightbox" data-gallery="office" data-title="Eingang"
+                                 data-footer="Ein schönes lichtdurchflutetes Büro mit Blick in einen ruhigen Innenhof">
+                            <h4>Eingang</h4>
+                        </li>
+                        <li><img src="images/work/office/office_board_thumb.jpg" class="img-thumbnail" data-remote="images/work/office/office_board.jpg"
+                                 alt="Ideenboard rocketbase.io"
+                                 data-toggle="lightbox" data-gallery="office" data-title="Ideenboard"
+                                 data-footer="Das Board hilft gemeinsame Ideen und Konzepte zu entwickeln">
+                            <h4>Ideenboard</h4>
+                        </li>
+                        <li><img src="images/work/office/office_scrum_thumb.jpg" class="img-thumbnail" data-remote="images/work/office/office_scrum.jpg"
+                                 alt="Orgaboard rocketbase.io"
+                                 data-toggle="lightbox" data-gallery="office" data-title="Orgaboard"
+                                 data-footer="Um in der Hektikt des Alltags organisiert zu bleiben">
+                            <h4>Orgaboard</h4>
+                        </li>
+                        <li><img src="images/work/office/scrumboard_thumb.jpg" class="img-thumbnail" data-remote="images/work/office/scrumboard.jpg"
+                                 alt="Scrumboard rocketbase.io"
+                                 data-toggle="lightbox" data-gallery="office" data-title="Scrum/Kanban"
+                                 data-footer="Unser schönes selbstgebautes Board im Detail">
+                            <h4>Scrum/Kanban</h4>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li><img src="images/work/technology/spring.png" class="img-thumbnail" alt="spring.io"><h4>Spring</h4></li>
+                        <li><img src="images/work/technology/vaadin.png" class="img-thumbnail" alt="vaadin"><h4>Vaadin</h4></li>
+                        <li><img src="images/work/technology/angular.png" class="img-thumbnail" alt="angular.io"><h4>Angular</h4></li>
+                        <li><img src="images/work/technology/docker.png" class="img-thumbnail" alt="docker"><h4>Docker</h4></li>
+                    </ul>
+                    <ul>
+                        <li><img src="images/work/people/niels.jpg" class="img-thumbnail" alt="Niels Schelbach"><h4>Niels</h4></li>
+                        <li><img src="images/work/people/marten.jpg" class="img-thumbnail" alt="Marten Prieß"><h4>Marten</h4></li>
+                        <li><img src="images/work/people/you.jpg" class="img-thumbnail" alt="You"><h4>you</h4></li>
+                    </ul>
+                    <nav>
+                        <a href="#" class="mi-selected">Büro</a>
+                        <a href="#">Technologien</a>
+                        <a href="#">Das Team</a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <section id="work">
+            <div class="container text-center">
+                <h2>Wir suchen nach Verstärkung</h2>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+                    diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                    dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+                    diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                    dolor sit amet.</p>
+            </div>
+        </section>
+
+
+
+    {{/content}}
+
+    {{#content "customScript"}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
+        <script>
+            $(function () {
+                $('#mi-slider')
+                        .catslider();
+            });
+            $(document)
+                    .delegate('*[data-toggle="lightbox"]', 'click', function (event) {
+                        event.preventDefault();
+                        $(this)
+                                .ekkoLightbox();
+                    });
+        </script>
+    {{/content}}
+
+{{/extend}}
