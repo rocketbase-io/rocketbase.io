@@ -814,3 +814,17 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: $theme-dark;
 }
+
+ul.normal {
+  @include serif-font;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#contact-map {
+  height: 500px;
+
+  @media (max-width: $screen-xs-max) {
+    height: 300px;
+  }
+}
