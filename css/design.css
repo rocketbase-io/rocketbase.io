@@ -6051,3 +6051,14 @@ img::-moz-selection {
 
 body {
   webkit-tap-highlight-color: #222; }
+
+ul.normal {
+  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5; }
+
+#contact-map {
+  height: 500px; }
+  @media (max-width: 767px) {
+    #contact-map {
+      height: 300px; } }
