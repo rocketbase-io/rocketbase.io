@@ -1,5 +1,5 @@
 /*!
- * jQuery JavaScript Library v2.2.3
+ * jQuery JavaScript Library v2.2.4
  * http://jquery.com/
  *
  * Includes Sizzle.js
@@ -9,7 +9,7 @@
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2016-04-05T19:26Z
+ * Date: 2016-05-20T17:23Z
  */
 
 (function( global, factory ) {
@@ -65,7 +65,7 @@ var support = {};
 
 
 var
-	version = "2.2.3",
+	version = "2.2.4",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -5006,13 +5006,14 @@ jQuery.Event.prototype = {
 	isDefaultPrevented: returnFalse,
 	isPropagationStopped: returnFalse,
 	isImmediatePropagationStopped: returnFalse,
+	isSimulated: false,
 
 	preventDefault: function() {
 		var e = this.originalEvent;
 
 		this.isDefaultPrevented = returnTrue;
 
-		if ( e ) {
+		if ( e && !this.isSimulated ) {
 			e.preventDefault();
 		}
 	},
@@ -5021,7 +5022,7 @@ jQuery.Event.prototype = {
 
 		this.isPropagationStopped = returnTrue;
 
-		if ( e ) {
+		if ( e && !this.isSimulated ) {
 			e.stopPropagation();
 		}
 	},
@@ -5030,7 +5031,7 @@ jQuery.Event.prototype = {
 
 		this.isImmediatePropagationStopped = returnTrue;
 
-		if ( e ) {
+		if ( e && !this.isSimulated ) {
 			e.stopImmediatePropagation();
 		}
 
@@ -5960,19 +5961,6 @@ function getWidthOrHeight( elem, name, extra ) {
 		val = name === "width" ? elem.offsetWidth : elem.offsetHeight,
 		styles = getStyles( elem ),
 		isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
-
-	// Support: IE11 only
-	// In IE 11 fullscreen elements inside of an iframe have
-	// 100x too small dimensions (gh-1764).
-	if ( document.msFullscreenElement && window.top !== window ) {
-
-		// Support: IE11 only
-		// Running getBoundingClientRect on a disconnected node
-		// in IE throws an error.
-		if ( elem.getClientRects().length ) {
-			val = Math.round( elem.getBoundingClientRect()[ name ] * 100 );
-		}
-	}
 
 	// Some non-html elements return undefined for offsetWidth, so check for null/undefined
 	// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
@@ -7864,6 +7852,7 @@ jQuery.extend( jQuery.event, {
 	},
 
 	// Piggyback on a donor event to simulate a different one
+	// Used only for `focus(in | out)` events
 	simulate: function( type, elem, event ) {
 		var e = jQuery.extend(
 			new jQuery.Event(),
@@ -7871,27 +7860,10 @@ jQuery.extend( jQuery.event, {
 			{
 				type: type,
 				isSimulated: true
-
-				// Previously, `originalEvent: {}` was set here, so stopPropagation call
-				// would not be triggered on donor event, since in our own
-				// jQuery.event.stopPropagation function we had a check for existence of
-				// originalEvent.stopPropagation method, so, consequently it would be a noop.
-				//
-				// But now, this "simulate" function is used only for events
-				// for which stopPropagation() is noop, so there is no need for that anymore.
-				//
-				// For the 1.x branch though, guard for "click" and "submit"
-				// events is still used, but was moved to jQuery.event.stopPropagation function
-				// because `originalEvent` should point to the original event for the constancy
-				// with other events and for more focused logic
 			}
 		);
 
 		jQuery.event.trigger( e, null, elem );
-
-		if ( e.isDefaultPrevented() ) {
-			event.preventDefault();
-		}
 	}
 
 } );
@@ -12412,7 +12384,7 @@ if (typeof jQuery === 'undefined') {
 
 /**
  * vivus - JavaScript library to make drawing animation on SVG
- * @version v0.3.0
+ * @version v0.3.1
  * @link https://github.com/maxwellito/vivus
  * @license MIT
  */
@@ -12729,8 +12701,8 @@ function Vivus (element, options, callback) {
 
 /**
  * Timing functions
- ************************************** 
- * 
+ **************************************
+ *
  * Default functions to help developers.
  * It always take a number as parameter (between 0 to 1) then
  * return a number (between 0 and 1)
@@ -12795,7 +12767,7 @@ Vivus.prototype.setElement = function (element, options) {
   case window.HTMLObjectElement:
     // If we have to wait for it
     var onLoad, self;
-    
+
     self = this;
     onLoad = function (e) {
       if (self.isReady) {
@@ -12977,7 +12949,7 @@ Vivus.prototype.mapping = function () {
       break;
 
     case 'scenario-sync':
-      path = paths[i];
+      path = pathObj.el;
       pAttrs = this.parseAttr(path);
       pathObj.startAt = timePoint + (parsePositiveInt(pAttrs['data-delay'], this.delayUnit) || 0);
       pathObj.duration = parsePositiveInt(pAttrs['data-duration'], this.duration);
@@ -12986,7 +12958,7 @@ Vivus.prototype.mapping = function () {
       break;
 
     case 'scenario':
-      path = paths[i];
+      path = pathObj.el;
       pAttrs = this.parseAttr(path);
       pathObj.startAt = parsePositiveInt(pAttrs['data-start'], this.delayUnit) || 0;
       pathObj.duration = parsePositiveInt(pAttrs['data-duration'], this.duration);
@@ -13073,7 +13045,7 @@ Vivus.prototype.trace = function () {
  * ressources, too much DOM manupulation..
  * but it's the only way to let the magic happen on IE.
  * By default, this fallback is only applied on IE.
- * 
+ *
  * @param  {Number} index Path index
  */
 Vivus.prototype.renderPath = function (index) {
@@ -13092,7 +13064,7 @@ Vivus.prototype.renderPath = function (index) {
  * This this mainly due to the case of passing an
  * object tag in the constructor. It will wait
  * the end of the loading to initialise.
- * 
+ *
  */
 Vivus.prototype.init = function () {
   // Set object variables
@@ -13181,7 +13153,7 @@ Vivus.prototype.finish = function () {
 
 /**
  * Set the level of progress of the drawing.
- * 
+ *
  * @param {number} progress Level of progress to set
  */
 Vivus.prototype.setFrameProgress = function (progress) {
@@ -13234,6 +13206,7 @@ Vivus.prototype.stop = function () {
  *
  */
 Vivus.prototype.destroy = function () {
+  this.stop();
   var i, path;
   for (i = 0; i < this.map.length; i++) {
     path = this.map[i];
