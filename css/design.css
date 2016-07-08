@@ -5036,8 +5036,7 @@ button.close {
       position: fixed;
       bottom: 0;
       left: 0;
-      right: 0;
-      width: 100%; }
+      right: 0; }
       .eupopup-container .eupopup-body {
         padding-bottom: 5px; }
       .eupopup-container .eupopup-buttons, .eupopup-container .eupopup-body span.init {
@@ -5073,6 +5072,57 @@ button.close {
       font-size: 14px;
       margin: 0 10px; }
       .eupopup-container .eupopup-button.eupopup-ok:hover, .eupopup-container .eupopup-button.eupopup-ok:focus {
+        text-decoration: underline; }
+
+.languagepopup-container {
+  background-color: rgba(25, 25, 25, 0.9);
+  color: #efefef;
+  padding: 5px 20px;
+  font-size: 12px;
+  line-height: 1.2em;
+  text-align: center;
+  z-index: 9999999;
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  width: 250px; }
+  @media (max-width: 600px) {
+    .languagepopup-container {
+      position: fixed;
+      bottom: 0;
+      top: 50px;
+      right: 0;
+      height: 70px; } }
+  .languagepopup-container .clearfix {
+    clear: both; }
+  .languagepopup-container .languagepopup-head {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 7px;
+    color: #fff; }
+  .languagepopup-container .languagepopup-buttons {
+    padding: 7px 0 5px 0; }
+  .languagepopup-container .languagepopup-button {
+    cursor: pointer; }
+    .languagepopup-container .languagepopup-button.languagepopup-close {
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.7);
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px 10px; }
+      .languagepopup-container .languagepopup-button.languagepopup-close:hover, .languagepopup-container .languagepopup-button.languagepopup-close:active {
+        color: #fff;
+        text-decoration: none; }
+    .languagepopup-container .languagepopup-button.languagepopup-ok {
+      color: #EE2C38;
+      font-weight: bold;
+      font-size: 14px;
+      margin: 0 10px; }
+      .languagepopup-container .languagepopup-button.languagepopup-ok:hover, .languagepopup-container .languagepopup-button.languagepopup-ok:focus {
         text-decoration: underline; }
 
 .mi-slider {
