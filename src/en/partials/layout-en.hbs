@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <!--
     * Copyright by rocketbase.io software productions UG
@@ -14,7 +14,7 @@
     <meta name=”robots” content=”index,follow”>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 
-    <link rel="alternate" hreflang="en" href="http://www.rocketbase.io/en/" />
+    <link rel="alternate" hreflang="de" href="http://www.rocketbase.io/" />
 
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
@@ -32,8 +32,8 @@
     {{/block}}
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href="css/design.css?v=2.0" rel="stylesheet">
-    <script src="js/main.js?v=2.1"></script>
+    <link href="../css/design.css?v=2.0" rel="stylesheet">
+    <script src="../js/main.js?v=2.1"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,40 +47,30 @@
 <body id="page-top">
 
     {{#block "navigation"}}
-        {{> navigation }}
+        {{> navigation-en }}
     {{/block}}
 
     {{#block "content"}}
     {{/block}}
 
     {{#block "footer"}}
-        {{> footer }}
+        {{> footer-en }}
     {{/block}}
 
     {{#block "customScript"}}
     {{/block}}
 
     <div class="eupopup-container">
-        <div class="eupopup-head">Wir verwenden Cookies.</div>
+        <div class="eupopup-head">We use cookies.</div>
         <div class="eupopup-body">
-            <span class="init">Cookies helfen die Webseite zu verbessern und individuelle Inhalte auszuspielen. </span>
-            <span class="short">Mit Verwendung der Seite stimmen Sie dieser Nutzung zu. Danke!</span>
+            <span class="init">Cookies help us to improve our website and deal with invididual content. </span>
+            <span class="short">By using our website your confirm this use. Thanks!</span>
         </div>
         <div class="eupopup-buttons">
             <a href="#" class="eupopup-button eupopup-ok">Ok</a>
             <div class="clearfix"></div>
         </div>
         <a href="#" class="eupopup-button eupopup-close"><i class="fa fa-times"></i></a>
-    </div>
-
-
-    <div class="languagepopup-container">
-        <div class="languagepopup-head">You dont speak german?</div>
-        <div class="languagepopup-buttons">
-            <a href="/en/" class="languagepopup-button languagepopup-ok">English Version</a>
-            <div class="clearfix"></div>
-        </div>
-        <a href="#" class="languagepopup-button languagepopup-close"><i class="fa fa-times"></i></a>
     </div>
 
     <script>

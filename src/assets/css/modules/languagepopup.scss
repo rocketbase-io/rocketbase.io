@@ -1,57 +1,45 @@
 
-.eupopup-container {
+.languagepopup-container {
   background-color: rgba(25, 25, 25, 0.9);
   color: #efefef;
   padding: 5px 20px;
   font-size: 12px;
   line-height: 1.2em;
   text-align: center;
-  display: none;
   z-index: 9999999;
-
+  display: none;
   position: fixed;
-  bottom: 10px;
-  left: 10px;
-  width: 300px;
+  top: 60px;
+  right: 10px;
+  width: 250px;
 
   @media (max-width: 600px) {
     position: fixed;
     bottom: 0;
-    left: 0;
+    top: 50px;
     right: 0;
-
-    .eupopup-body {
-      padding-bottom: 5px;
-    }
-
-    .eupopup-buttons, .eupopup-body span.init {
-      display: none;
-    }
+    height: 70px;
   }
 
   .clearfix {
     clear: both;
   }
 
-  .eupopup-head {
+  .languagepopup-head {
     font-size: 1.2em;
     font-weight: bold;
     padding: 7px;
     color: #fff;
   }
 
-  .eupopup-body {
-    color: #a2a2a2;
-  }
-
-  .eupopup-buttons {
+  .languagepopup-buttons {
     padding: 7px 0 5px 0;
   }
 
-  .eupopup-button {
+  .languagepopup-button {
     cursor: pointer;
 
-    &.eupopup-close {
+    &.languagepopup-close {
       font-size: 16px;
       font-weight: 100;
       line-height: 1;
@@ -67,7 +55,7 @@
       }
     }
 
-    &.eupopup-ok {
+    &.languagepopup-ok {
       color: $theme-primary;
       font-weight: bold;
       font-size: 14px;

@@ -110,51 +110,50 @@
         }
     });
 
-
     // Cookie Banner
-    var COOKIE_NAME = 'EU_COOKIE_LAW_CONSENT', COOKIE_EXPIRES_IN_DAYS = 90;
+    var EU_COOKIE_NAME = 'EU_COOKIE_LAW_CONSENT', EU_COOKIE_EXPIRES_IN_DAYS = 90;
 
     // Storing the consent in a cookie
-    var setUserAcceptsCookies = function(consent) {
+    var setCookies = function(cookieName, days) {
         var d = new Date();
-        var expiresInDays = COOKIE_EXPIRES_IN_DAYS * 24 * 60 * 60 * 1000;
+        var expiresInDays = days * 24 * 60 * 60 * 1000;
         d.setTime( d.getTime() + expiresInDays );
         var expires = "expires=" + d.toGMTString();
-        document.cookie = COOKIE_NAME + '=' + consent + "; " + expires + ";path=/";
+        document.cookie = cookieName + '=true; ' + expires + ";path=/";
     };
 
     // Let's see if we have a consent cookie already
-    var userAlreadyAcceptedCookies = function() {
+    var isCookieAlreadySet = function(cookieName) {
         var userAcceptedCookies = false;
         var cookies = document.cookie.split(";");
         for (var i = 0; i < cookies.length; i++) {
             var c = cookies[i].trim();
-            if (c.indexOf(COOKIE_NAME) == 0) {
-                userAcceptedCookies = c.substring(COOKIE_NAME.length + 1, c.length);
+            if (c.indexOf(cookieName) == 0) {
+                userAcceptedCookies = c.substring(cookieName.length + 1, c.length);
             }
         }
 
         return userAcceptedCookies;
     };
 
-    var hideContainer = function() {
-        $('.eupopup-container').animate({
+    var hideContainer = function(selector) {
+        $(selector).animate({
             opacity: 0,
             height: 0
         }, 200, function() {
-            $('.eupopup-container').hide(0);
+            $(selector).hide(0);
         });
     };
 
     $(document).ready(function() {
         // No need to display this if user already accepted the policy
-        if (userAlreadyAcceptedCookies()) {
+        if (isCookieAlreadySet(EU_COOKIE_NAME)) {
             return;
         }
 
         $('.eupopup-button').click(function() {
-            setUserAcceptsCookies(true);
-            hideContainer();
+            setCookies(EU_COOKIE_NAME, EU_COOKIE_EXPIRES_IN_DAYS);
+            hideContainer('.eupopup-container');
             return false;
         });
 
@@ -162,6 +161,36 @@
         $('.eupopup-container').show();
     });
 
+    // Language selector
+    // Cookie Banner
+    var LANGUAGE_COOKIE_NAME = 'LANGUAGE_SELECTED_CONSENT', LANGUAGE_COOKIE_EXPIRES_IN_DAYS = 14;
+    $(document).ready(function() {
+        var lang = $('html').closest('[lang]').attr('lang');
+        if (lang == 'de') {
+            var usersLanguages = window.acceptedlanguages.accepted;
+            console.log("usersLanguages: ", usersLanguages);
+            if (usersLanguages != null && usersLanguages.length > 0 && usersLanguages[0].match(/^de/i) == null) {
+                // No need to display this if user has already selected language
+                if (isCookieAlreadySet(LANGUAGE_COOKIE_NAME)) {
+                    return;
+                }
+
+                $('.languagepopup-close').click(function() {
+                    setCookies(LANGUAGE_COOKIE_NAME, LANGUAGE_COOKIE_EXPIRES_IN_DAYS);
+                    hideContainer('.languagepopup-container');
+                    return false;
+                });
+
+                /*
+                // Ready to start!
+                $('.languagepopup-container').show();
+
+                // only show this popup once
+                setCookies(LANGUAGE_COOKIE_NAME, LANGUAGE_COOKIE_EXPIRES_IN_DAYS);
+                */
+            }
+        }
+    });
 
 
     // Slider

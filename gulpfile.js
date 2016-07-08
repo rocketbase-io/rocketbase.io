@@ -36,31 +36,36 @@ gulp.task('build', function (callback) {
 
 gulp.task('handlebars', function () {
 
-    return gulp.src('./src/**.hbs')
-        .pipe(rename({
-            extname: ".html"
-        }))
-        .pipe(frontMatter({ // optional configuration
-            property: 'frontMatter', // property added to file object
-            remove: true // should we remove front-matter header?
-        }))
-        .pipe(hb({
-            debug: true,
-            bustCache: true,
-            data: './src/data/**.js',
-            helpers: ['./src/handlebars/**.js', './node_modules/handlebars-layouts/index.js'],
-            partials: './src/partials/**.hbs',
-            dataEach: function (context, file) {
-                // map frontMatter attributes directly in context without file as prefix
-                _.assign(context, file.frontMatter);
-                // add file meta information to context
-                context.fileAttr = {mtime: file.stat.mtime, shortPath: file.path.replace(file.cwd, '')};
-                return context;
-            }
-        }))
-        .pipe(minifyHTML())
-        .pipe(gulp.dest('build'))
-        .pipe(browserSync.reload({stream: true}));
+    var process = function (englishVersion) {
+        gulp.src(englishVersion ? './src/en/*.hbs' : './src/*.hbs')
+            .pipe(rename({
+                extname: ".html"
+            }))
+            .pipe(frontMatter({ // optional configuration
+                property: 'frontMatter', // property added to file object
+                remove: true // should we remove front-matter header?
+            }))
+            .pipe(hb({
+                debug: true,
+                bustCache: true,
+                data: './src/data/**.js',
+                helpers: ['./src/handlebars/*.js', './node_modules/handlebars-layouts/index.js'],
+                partials: (englishVersion ? './src/en/partials/*.hbs' : './src/partials/*.hbs'),
+                dataEach: function (context, file) {
+                    // map frontMatter attributes directly in context without file as prefix
+                    _.assign(context, file.frontMatter);
+                    // add file meta information to context
+                    context.fileAttr = {mtime: file.stat.mtime, shortPath: file.path.replace(file.cwd, '')};
+                    return context;
+                }
+            }))
+            .pipe(minifyHTML())
+            .pipe(gulp.dest(englishVersion ? 'build/en' : 'build'))
+            .pipe(browserSync.reload({stream: true}))
+    };
+
+    process(false);
+    return process(true);
 });
 
 gulp.task('sass', ['bower'], function () {
@@ -77,12 +82,12 @@ gulp.task('sass', ['bower'], function () {
 
 gulp.task('uglify:main', function () {
     return gulp.src(['./bower_components/jquery/dist/jquery.js', 'bower_components/jquery.easing/js/jquery.easing.js', './bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
-            './bower_components/vivus/dist/vivus.js', './bower_components/scrollup/dist/jquery.scrollUp.js',
+        './bower_components/vivus/dist/vivus.js', './bower_components/scrollup/dist/jquery.scrollUp.js', './bower_components/acceptedlanguages/dist/acceptedlanguages.min.js',
             './src/assets/js/main.js'])
-        // .pipe(uglify({compress: true}))
-        .pipe(concat('main.js'))
-        .pipe(gulp.dest('./build/js'))
-        .pipe(browserSync.reload({stream: true}));
+               .pipe(uglify({compress: true}))
+               .pipe(concat('main.js'))
+               .pipe(gulp.dest('./build/js'))
+               .pipe(browserSync.reload({stream: true}));
 });
 gulp.task('bower', function () {
     // fetch bower dependencies
@@ -90,7 +95,7 @@ gulp.task('bower', function () {
 });
 
 gulp.task('watch', function () {
-    watch(['./src/**.hbs', './src/data/**/*.js', './src/handlebars/**/*.js', './src/partials/**/*.hbs'], function () {
+    watch(['./src/**/*.hbs', './src/data/**/*.js', './src/handlebars/**/*.js'], function () {
         gulp.run('handlebars');
     });
     watch(['./src/assets/css/**/*.less'], function () {
